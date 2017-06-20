@@ -1,0 +1,2021 @@
+[
+  {
+    "ack": 1,
+    "description": "Virtual field used by the cloud when only the position is sent (no field is used).",
+    "field": 0,
+    "field_type": "unknown",
+    "name": "POSITION",
+    "size": 0
+  },{
+    "ack": 1,
+    "description": "Stores the last validity state of the latest GPS GPRMC frame. 'A' is valid and 'V' is invalid.",
+    "field": 3,
+    "field_type": "string",
+    "name": "GPRMC_VALID",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores the last valid speed of the GPS in 1/1000th knots.",
+    "field": 8,
+    "field_type": "integer",
+    "name": "GPS_SPEED",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "Stores the last valid course of the GPS in 1/100th degrees.",
+    "field": 9,
+    "field_type": "integer",
+    "name": "GPS_DIR",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "Stores the current altitude, in meters. Is set to -999 when GPS is not fixed.",
+    "field": 10,
+    "field_type": "integer",
+    "name": "GPS_ALTITUDE",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "Stores the state of the ignition input.",
+    "field": 14,
+    "field_type": "boolean",
+    "name": "DIO_IGNITION",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores 0 if the internal battery is in use or 1 if not.",
+    "field": 15,
+    "field_type": "integer",
+    "name": "BATT",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores 0 (2 with roaming) if GPRS is not registered or 1 (3 with roaming) if registered. This value is used in the GPRS state tracking field.",
+    "field": 16,
+    "field_type": "integer",
+    "name": "GPRS_HEADER",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores the modem RSSI.",
+    "field": 17,
+    "field_type": "integer",
+    "name": "RSSI",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Set to 0 if the device is 'really' unplugged from the car. Set to 1 if the external voltage is present. This may differ under some circumstances from MDI_BATT (the device may be connected AND the battery used).",
+    "field": 18,
+    "field_type": "integer",
+    "name": "MDI_EXT_BATT_PRESENT",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The first driver's selector state from the tachograph device (driving, rest, availability, work).",
+    "field": 19,
+    "field_type": "string",
+    "name": "TACHOGRAPH_FIRST_DRIVER_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value.",
+    "field": 20,
+    "field_type": "string",
+    "name": "TACHOGRAPH_FIRST_DRIVER_DRIVING_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The dailymeter value from the tachograph device.",
+    "field": 21,
+    "field_type": "integer",
+    "name": "TACHOGRAPH_DAILYMETER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The odometer value from the tachograph device.",
+    "field": 22,
+    "field_type": "integer",
+    "name": "TACHOGRAPH_ODOMETER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Stores value in kilometers of the GPS's partial odometer.",
+    "field": 23,
+    "field_type": "string",
+    "name": "ODO_PARTIAL_KM",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Stores value in meters of the GPS's full odometer.",
+    "field": 24,
+    "field_type": "integer",
+    "name": "ODO_FULL",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The time spent driving value from the tachograph device.",
+    "field": 25,
+    "field_type": "integer",
+    "name": "TACHOGRAPH_DRIVING_TIME",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Stores the state of the alarm input.",
+    "field": 26,
+    "field_type": "boolean",
+    "name": "DIO_ALARM",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores the first IButton ID.",
+    "field": 27,
+    "field_type": "string",
+    "name": "DRIVER_ID",
+    "size": 16
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #1.",
+    "field": 28,
+    "field_type": "integer",
+    "name": "TEMP_1",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #2.",
+    "field": 29,
+    "field_type": "integer",
+    "name": "TEMP_2",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #3.",
+    "field": 30,
+    "field_type": "integer",
+    "name": "TEMP_3",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #4.",
+    "field": 31,
+    "field_type": "integer",
+    "name": "TEMP_4",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #5.",
+    "field": 32,
+    "field_type": "integer",
+    "name": "TEMP_5",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #6.",
+    "field": 33,
+    "field_type": "integer",
+    "name": "TEMP_6",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #7.",
+    "field": 34,
+    "field_type": "integer",
+    "name": "TEMP_7",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #8.",
+    "field": 35,
+    "field_type": "integer",
+    "name": "TEMP_8",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #9.",
+    "field": 36,
+    "field_type": "integer",
+    "name": "TEMP_9",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "1-wire temperature sensor #10.",
+    "field": 37,
+    "field_type": "integer",
+    "name": "TEMP_10",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Stores the state of all inputs in a hexstring, each bit represents one input.",
+    "field": 38,
+    "field_type": "string",
+    "name": "DIO_IN_TOR",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Horizontal dilution of the precision of the GPS.",
+    "field": 39,
+    "field_type": "integer",
+    "name": "GPS_HDOP",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Vertical dilution of the precision of the GPS.",
+    "field": 40,
+    "field_type": "integer",
+    "name": "GPS_VDOP",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Positional dilution of the precision of the GPS.",
+    "field": 41,
+    "field_type": "integer",
+    "name": "GPS_PDOP",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Battery temperature (milli °C).",
+    "field": 42,
+    "field_type": "integer",
+    "name": "BATT_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Case temperature (milli °C).",
+    "field": 43,
+    "field_type": "integer",
+    "name": "CASE_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Name of the current network operator.",
+    "field": 44,
+    "field_type": "string",
+    "name": "MODEM_NETWORK_OPERATOR",
+    "size": 6
+  },{
+    "ack": 1,
+    "description": "Contains the unique identifier for the first OBD protocol the device used to connect itself with.",
+    "field": 45,
+    "field_type": "integer",
+    "name": "OBD_CONNECTED_PROTOCOL",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Contains the current PDOP status: 0 if instable, 1 if the pdop is less than the configured value for the configured number of seconds, 2 if the pdop is more than the configured value for the configured number of seconds.",
+    "field": 46,
+    "field_type": "integer",
+    "name": "GPS_AVERAGE_PDOP_STATUS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "The last valid gps latitude known. Needs to be divided by 10^6 to be in decimal degree format.",
+    "field": 47,
+    "field_type": "integer",
+    "name": "MDI_LAST_VALID_GPS_LATITUDE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "The last valid gps longitude known. Needs to be divided by 10^6 to be in decimal degree format.",
+    "field": 48,
+    "field_type": "integer",
+    "name": "MDI_LAST_VALID_GPS_LONGITUDE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Fuel level of the second tank.",
+    "field": 50,
+    "field_type": "integer",
+    "name": "FMS_FUEL_LEVEL_2",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 51,
+    "field_type": "integer",
+    "name": "MDI_OBD_FUEL_LEVEL_RATIO",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The first driver's id from the tachograph device.",
+    "field": 52,
+    "field_type": "string",
+    "name": "TACHOGRAPH_FIRST_DRIVER_ID",
+    "size": 19
+  },{
+    "ack": 1,
+    "description": "Stores the list of crossed areas. Format is (FileId:AreaId;)*.",
+    "field": 53,
+    "field_type": "string",
+    "name": "AREA_LIST",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. Update timestamp every time another value is updated in number of seconds since Jan 1st 1970 (EPOCH for UNIX).",
+    "field": 54,
+    "field_type": "integer",
+    "name": "TACHOGRAPH_TIMESTAMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Number of satellites used for the GPS fix.",
+    "field": 55,
+    "field_type": "integer",
+    "name": "GPS_FIXED_SAT_NUM",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Filled by the gpsMvtDetector component. Retrurns true when the device is moving according to the GPS or the accelerometer.",
+    "field": 56,
+    "field_type": "boolean",
+    "name": "MVT_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores the last boot reason.",
+    "field": 57,
+    "field_type": "string",
+    "name": "BOOT_REASON",
+    "size": 6
+  },{
+    "ack": 1,
+    "description": "Stores both the value of the shutdown field_type and the value of the shutdown reason when the function shutdownRequest is called. Values are separated by a '-'.",
+    "field": 58,
+    "field_type": "string",
+    "name": "SHUTDOWN_TYPE_AND_REASON",
+    "size": 6
+  },{
+    "ack": 1,
+    "description": "Internal battery voltage (mV).",
+    "field": 59,
+    "field_type": "integer",
+    "name": "BATT_VOLT",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Stores the total current number of kilobytes of data transmitted.",
+    "field": 60,
+    "field_type": "integer",
+    "name": "TX_KBYTES",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Stores the total current number of kilobytes of data received.",
+    "field": 61,
+    "field_type": "integer",
+    "name": "RX_KBYTES",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Used when a resistor is wired to an output in order to keep the battery temperature above 0\u00b0C while it is charging.",
+    "field": 62,
+    "field_type": "integer",
+    "name": "BATT_WARMUP",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores 1 if the internal battery is charging or 0 if not.",
+    "field": 63,
+    "field_type": "boolean",
+    "name": "BATT_CHARGING",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Standard 2 card slot tachometer return value (some trucks have tachometers that allow you to insert two cards; both drivers have their own state). The second driver's selector state from the tachograph device.",
+    "field": 64,
+    "field_type": "string",
+    "name": "TACHOGRAPH_SECOND_DRIVER_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Standard 2 card slot tachometer return value. The second driver's id from the tachograph device.",
+    "field": 65,
+    "field_type": "string",
+    "name": "TACHOGRAPH_SECOND_DRIVER_ID",
+    "size": 19
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The vehicle registration number (VRN) from the tachograph device.",
+    "field": 66,
+    "field_type": "string",
+    "name": "TACHOGRAPH_VRN",
+    "size": 14
+  },{
+    "ack": 1,
+    "description": "Standard tachometer return value. The vehicle identification number (VIN) from the tachograph device.",
+    "field": 67,
+    "field_type": "string",
+    "name": "TACHOGRAPH_VIN",
+    "size": 17
+  },{
+    "ack": 1,
+    "description": "Stores the state of all outputs in a hexstring, each bit represents one output.",
+    "field": 68,
+    "field_type": "string",
+    "name": "DIO_OUT_TOR",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Old framework component that manages IO for relays with IButton keys. Error-prone, so it is recommended not to use it.",
+    "field": 69,
+    "field_type": "boolean",
+    "name": "RELAYCONTROL_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "ICCID number of the SIM card (if present).",
+    "field": 70,
+    "field_type": "string",
+    "name": "MODEM_SIM_ICCID",
+    "size": 20
+  },{
+    "ack": 1,
+    "description": "IMSI number of the SIM card (if present).",
+    "field": 71,
+    "field_type": "string",
+    "name": "MODEM_SIM_IMSI",
+    "size": 15
+  },{
+    "ack": 1,
+    "description": "State of the serial PPP instances (0=not connected, 1=waiting for connection, 2=connected).",
+    "field": 72,
+    "field_type": "integer",
+    "name": "SERIAL_PPP_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Fuel level in 1/10th of Liters.",
+    "field": 73,
+    "field_type": "integer",
+    "name": "MDI_OBD_FUEL_LEVEL",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Engine Percent Load At Current Speed.",
+    "field": 74,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_LOAD",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Engine Fuel Delivery Pressure in psi.",
+    "field": 75,
+    "field_type": "integer",
+    "name": "MDI_OBD_FUEL_PRESSURE",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Engine Throttle Position percentage.",
+    "field": 76,
+    "field_type": "integer",
+    "name": "MDI_OBD_THROTTLE_POSITION",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Engine oil temperature in Fahrenheit.",
+    "field": 77,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_OIL_TEMP",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Transmission Oil Temperature in Fahrenheit.",
+    "field": 78,
+    "field_type": "integer",
+    "name": "MDI_OBD_TRANSMISSION_OIL_TEMP",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Engine Oil Pressure  in psi.",
+    "field": 79,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_OIL_PRESSURE",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Cruise control state.",
+    "field": 80,
+    "field_type": "boolean",
+    "name": "MDI_OBD_CRUISE_CONTROL",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Water In Fuel Indicator.",
+    "field": 81,
+    "field_type": "boolean",
+    "name": "MDI_OBD_STATE_WATER_IN_FUEL",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Engine Coolant Level percentage.",
+    "field": 82,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_COOLANT_LEVEL",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Engine Coolant Temperature in Fahrenheit.",
+    "field": 83,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_COOLANT_TEMP",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Engine coolant pressure in psi.",
+    "field": 84,
+    "field_type": "integer",
+    "name": "MDI_OBD_ENGINE_COOLANT_PRESSURE",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Engine Fuel Delivery Pressure in psi.",
+    "field": 85,
+    "field_type": "integer",
+    "name": "MDI_OBD_FUEL_DELIVERY_PRESSURE",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Parking Brake Switch.",
+    "field": 86,
+    "field_type": "boolean",
+    "name": "MDI_OBD_PARKING_BRAKE_SWITCH",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Stores the serial number of the last connected board (used when 2 devices are connected and using inter board communication).",
+    "field": 87,
+    "field_type": "string",
+    "name": "CONNECTED_BOARD_ID",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 88,
+    "field_type": "integer",
+    "name": "FMS_TOTAL_USED_FUEL",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 89,
+    "field_type": "integer",
+    "name": "FMS_FUEL_LEVEL",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 90,
+    "field_type": "integer",
+    "name": "FMS_AXLE_LOCATION",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 91,
+    "field_type": "integer",
+    "name": "FMS_AXLE_WEIGHT",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 92,
+    "field_type": "integer",
+    "name": "FMS_ENGINE_HOURS",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 93,
+    "field_type": "string",
+    "name": "FMS_VEHICLE_ID",
+    "size": 200
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 94,
+    "field_type": "string",
+    "name": "FMS_SOFTWARE_ID",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 95,
+    "field_type": "integer",
+    "name": "FMS_TOTAL_DISTANCE",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 96,
+    "field_type": "integer",
+    "name": "FMS_NEXT_SERVICE",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 97,
+    "field_type": "integer",
+    "name": "FMS_ENGINE_COOLANT_TEMP",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 98,
+    "field_type": "string",
+    "name": "FMS_INFORMATION",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "Stores the serial number of the board (device).",
+    "field": 99,
+    "field_type": "string",
+    "name": "BOARD_ID",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "Id of the event.",
+    "field": 100,
+    "field_type": "integer",
+    "name": "BEHAVE_ID",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": " Longitude in hundred thousandths of a degree. Positive means East.",
+    "field": 101,
+    "field_type": "integer",
+    "name": "BEHAVE_LONG",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Latitude in hundred thousandths of a degree. Positive means North.",
+    "field": 102,
+    "field_type": "integer",
+    "name": "BEHAVE_LAT",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Date when the event occured. For example 25/10/2012 is transcribed as 121025.",
+    "field": 103,
+    "field_type": "integer",
+    "name": "BEHAVE_DAY_OF_YEAR",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Time when the event occured. For example 14h35 12s is transcribed as 143512.",
+    "field": 104,
+    "field_type": "integer",
+    "name": "BEHAVE_TIME_OF_DAY",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Speed over ground in kilo Knots.",
+    "field": 105,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_SPEED_BEGIN",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Speed over ground in kilo Knots.",
+    "field": 106,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_SPEED_PEAK",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Speed over ground in kilo Knots.",
+    "field": 107,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_SPEED_END",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Course in thousandths of a degree.",
+    "field": 108,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_HEADING_BEGIN",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Course in thousandths of a degree.",
+    "field": 109,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_HEADING_PEAK",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Course in thousandths of a degree.",
+    "field": 110,
+    "field_type": "integer",
+    "name": "BEHAVE_GPS_HEADING_END",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 111,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_X_BEGIN",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 112,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_X_PEAK",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 113,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_X_END",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 114,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Y_BEGIN",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 115,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Y_PEAK",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 116,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Y_END",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 117,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Z_BEGIN",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 118,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Z_PEAK",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Acceleration in mG.",
+    "field": 119,
+    "field_type": "integer",
+    "name": "BEHAVE_ACC_Z_END",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 120,
+    "field_type": "integer",
+    "name": "BEHAVE_ELAPSED",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Cyclic counter for easy debug of events.",
+    "field": 121,
+    "field_type": "integer",
+    "name": "BEHAVE_UNIQUE_ID",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 122,
+    "field_type": "string",
+    "name": "MDI_CRASH_DETECTED",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Brake Application Pressure in psi.",
+    "field": 123,
+    "field_type": "integer",
+    "name": "MDI_OBD_BRAKE_APPLICATION_PRESSURE",
+    "size": 2
+  },{
+    "ack": 1,
+    "description": "Pedal brake status.",
+    "field": 124,
+    "field_type": "boolean",
+    "name": "MDI_OBD_BRAKE_PEDAL_STATUS",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "Current stack name.",
+    "field": 125,
+    "field_type": "string",
+    "name": "MDI_OBD_STACK_NAME",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 126,
+    "field_type": "integer",
+    "name": "LAST_CALIB_ACCELERO_TIME",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Stores both the value of the shutdown field_type and the value of the shutdown reason when the function shutdownRequest is called. It starts with 'S:' and values are separated by a '-'.",
+    "field": 127,
+    "field_type": "string",
+    "name": "EVENT",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "Brake pedal position in percentage (0 means no braking).",
+    "field": 128,
+    "field_type": "integer",
+    "name": "MDI_OBD_BRAKE_PEDAL_POSITION",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Magnetization of axis X in milli gauss",
+    "field": 130,
+    "field_type": "integer",
+    "name": "MAGNETO_X",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Magnetization of axis Y in milli gauss",
+    "field": 131,
+    "field_type": "integer",
+    "name": "MAGNETO_Y",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Magnetization of axis Z in milli gauss",
+    "field": 132,
+    "field_type": "integer",
+    "name": "MAGNETO_Z",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Heading of the vehicule based on magnetometer information. Measured clockwise from the North, either true or magnetic, in degrees between 0 and 359.",
+    "field": 133,
+    "field_type": "integer",
+    "name": "MAGNETO_HEADING",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "min internal battery voltage in mV.",
+    "field": 134,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MIN_BATT_VOLT",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "max internal battery voltage in mV.",
+    "field": 135,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MAX_BATT_VOLT",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Bitmask of flags describing the internal battery status.",
+    "field": 136,
+    "field_type": "integer",
+    "name": "MDI_BATT_STATUS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a speed in the band with id 1. The value of min and max speed of the band depends on the device configuration. Default configuration is minSpeed=0km/h, maxSpeed=49km/h.",
+    "field": 138,
+    "field_type": "integer",
+    "name": "MDI_SPEED_BAND_1",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a speed in the band with id 2. The value of min and max speed of the band depends on the device configuration. Default configuration is minSpeed=50km/h.",
+    "field": 139,
+    "field_type": "integer",
+    "name": "MDI_SPEED_BAND_2",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a speed in the band with id 3. The value of min and max speed of the band depends on the device configuration. Default configuration is minSpeed=90km/h.",
+    "field": 140,
+    "field_type": "integer",
+    "name": "MDI_SPEED_BAND_3",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a speed in the band with id 4. The value of min and max speed of the band depends on the device configuration. Default configuration is minSpeed=140km/h.",
+    "field": 141,
+    "field_type": "integer",
+    "name": "MDI_SPEED_BAND_4",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a speed in the band with id 5. The value of min and max speed of the band depends on the device configuration. Default configuration is to not use this field.",
+    "field": 142,
+    "field_type": "integer",
+    "name": "MDI_SPEED_BAND_5",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a RPM in the band with id 1. The value of min and max RPM of the band depends on the device configuration. Default configuration is minRPM=0, maxRPM=999.",
+    "field": 143,
+    "field_type": "integer",
+    "name": "MDI_RPM_BAND_1",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a RPM in the band with id 2. The value of min and max RPM of the band depends on the device configuration. Default configuration is minRPM=1000, maxRPM=1499.",
+    "field": 144,
+    "field_type": "integer",
+    "name": "MDI_RPM_BAND_2",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a RPM in the band with id 3. The value of min and max RPM of the band depends on the device configuration. Default configuration is minRPM=1500, maxRPM=2499.",
+    "field": 145,
+    "field_type": "integer",
+    "name": "MDI_RPM_BAND_3",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a RPM in the band with id 4. The value of min and max RPM of the band depends on the device configuration. Default configuration is minRPM=2500, maxRPM=9999.",
+    "field": 146,
+    "field_type": "integer",
+    "name": "MDI_RPM_BAND_4",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Time in seconds spent with a RPM in the band with id 5. The value of min and max RPM of the band depends on the device configuration. Default configuration is to not use this field.",
+    "field": 147,
+    "field_type": "integer",
+    "name": "MDI_RPM_BAND_5",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Alternative VIN when two or more valid VINs are sent by the device.",
+    "field": 148,
+    "field_type": "string",
+    "name": "MDI_OBD_VIN_ALT",
+    "size": 17
+  },{
+    "ack": 1,
+    "description": "Dashboard mileage in meters when available.",
+    "field": 149,
+    "field_type": "integer",
+    "name": "MDI_DASHBOARD_MILEAGE_METERS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 150,
+    "field_type": "boolean",
+    "name": "MDI_EXT_BATT_LOW",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 151,
+    "field_type": "integer",
+    "name": "MDI_EXT_BATT_VOLTAGE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 152,
+    "field_type": "boolean",
+    "name": "MDI_PANIC_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 153,
+    "field_type": "string",
+    "name": "MDI_PANIC_MESSAGE",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 154,
+    "field_type": "boolean",
+    "name": "MDI_DTC_MIL",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 155,
+    "field_type": "integer",
+    "name": "MDI_DTC_NUMBER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 156,
+    "field_type": "string",
+    "name": "MDI_DTC_LIST",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 157,
+    "field_type": "integer",
+    "name": "MDI_RPM_MAX",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 158,
+    "field_type": "integer",
+    "name": "MDI_RPM_MIN",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 159,
+    "field_type": "integer",
+    "name": "MDI_RPM_AVERAGE",
+    "size": 5
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 160,
+    "field_type": "boolean",
+    "name": "MDI_RPM_OVER",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 161,
+    "field_type": "integer",
+    "name": "MDI_RPM_AVERAGE_RANGE_1",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 162,
+    "field_type": "integer",
+    "name": "MDI_RPM_AVERAGE_RANGE_2",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 163,
+    "field_type": "integer",
+    "name": "MDI_RPM_AVERAGE_RANGE_3",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 164,
+    "field_type": "integer",
+    "name": "MDI_RPM_AVERAGE_RANGE_4",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 165,
+    "field_type": "string",
+    "name": "MDI_SENSORS_RECORDER_DATA",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 166,
+    "field_type": "string",
+    "name": "MDI_SENSORS_RECORDER_CALIBRATION",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 167,
+    "field_type": "integer",
+    "name": "MDI_ODO_PARTIAL_METER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 168,
+    "field_type": "integer",
+    "name": "MDI_ODO_FULL_METER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Index that matches the BT device's MAC in the Array of MACs to record.",
+    "field": 169,
+    "field_type": "integer",
+    "name": "MDI_BT_DEVICE_INDEX",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Temperature recorded by the BT device in degrees.",
+    "field": 170,
+    "field_type": "integer",
+    "name": "MDI_BT_TEMPERATURE",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Light level recorded by the BT device in lux.",
+    "field": 171,
+    "field_type": "integer",
+    "name": "MDI_BT_LIGHT_LEVEL",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Humidity recorded by the BT device in %.",
+    "field": 172,
+    "field_type": "integer",
+    "name": "MDI_BT_HUMIDITY",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Last accelerometer data on X's device component, in mm.s-2. Be aware that the value is in mm.s-2 and not in m.s-2.",
+    "field": 173,
+    "field_type": "integer",
+    "name": "MDI_BT_ACCELEROX",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Last accelerometer data on Y's device component, in mm.s-2. Be aware that the value is in mm.s-2 and not in m.s-2.",
+    "field": 174,
+    "field_type": "integer",
+    "name": "MDI_BT_ACCELEROY",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Last accelerometer data on Z's device component, in mm.s-2. Be aware that the value is in mm.s-2 and not in m.s-2.",
+    "field": 175,
+    "field_type": "integer",
+    "name": "MDI_BT_ACCELEROZ",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Passive InfraRed motion. 0 if the device is not in movement, 1 if the device is moving.",
+    "field": 176,
+    "field_type": "integer",
+    "name": "MDI_BT_PIR",
+    "size": 8
+  },{
+    "ack": 1,
+    "description": "Current country code as defined by ISO 3166-1.",
+    "field": 177,
+    "field_type": "string",
+    "name": "MDI_ZONE_COUNTRY",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "Current state code as defined by ISO 3166-2.",
+    "field": 178,
+    "field_type": "string",
+    "name": "MDI_ZONE_STATE",
+    "size": 16
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 193,
+    "field_type": "boolean",
+    "name": "MDI_GPS_ANTENNA",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 194,
+    "field_type": "integer",
+    "name": "MDI_DIO_AIN1",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Available space in bytes.",
+    "field": 195,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_WRITEDIR_FREE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Number of open file descriptors.",
+    "field": 196,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_OPENED_FDS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Number of threads on the device.",
+    "field": 197,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_THREADS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Load average in percentile.",
+    "field": 198,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_LOADAVG15",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Minimum temperature of the battery in milli celcius.",
+    "field": 199,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MIN_BATT_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Maximum temperature of the battery in milli celcius.",
+    "field": 200,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MAX_BATT_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Minimum temperature of the casing in milli celcius.",
+    "field": 201,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MIN_CASE_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Maximum temperature of the casing in milli celcius.",
+    "field": 202,
+    "field_type": "integer",
+    "name": "MDI_HEALTH_MAX_CASE_TEMP",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 203,
+    "field_type": "integer",
+    "name": "MDI_CAN0_ERROR",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 204,
+    "field_type": "integer",
+    "name": "MDI_CAN1_ERROR",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Hash string that is unique per VIN.",
+    "field": 213,
+    "field_type": "string",
+    "name": "MDI_OBD_VIN_HASH",
+    "size": 32
+  },{
+    "ack": 1,
+    "description": "Number incremented every time a journey starts (MDI_JOURNEY_STATE is set to 1).",
+    "field": 214,
+    "field_type": "integer",
+    "name": "MDI_JOURNEY_ID",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 215,
+    "field_type": "string",
+    "name": "MDI_OBD_PID_1",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 216,
+    "field_type": "string",
+    "name": "MDI_OBD_PID_2",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 217,
+    "field_type": "string",
+    "name": "MDI_OBD_PID_3",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 218,
+    "field_type": "string",
+    "name": "MDI_OBD_PID_4",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 219,
+    "field_type": "string",
+    "name": "MDI_OBD_PID_5",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "Mileage obtained from the dashboard.",
+    "field": 223,
+    "field_type": "integer",
+    "name": "MDI_DASHBOARD_MILEAGE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Fuel percentage obtained from the dashboard.",
+    "field": 224,
+    "field_type": "integer",
+    "name": "MDI_DASHBOARD_FUEL",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Fuel level obtained from the dashboard.",
+    "field": 225,
+    "field_type": "integer",
+    "name": "MDI_DASHBOARD_FUEL_LEVEL",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 226,
+    "field_type": "string",
+    "name": "MDI_DIAG_1",
+    "size": 128
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 227,
+    "field_type": "string",
+    "name": "MDI_DIAG_2",
+    "size": 128
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 228,
+    "field_type": "string",
+    "name": "MDI_DIAG_3",
+    "size": 128
+  },{
+    "ack": 1,
+    "description": "Anonymized VIN obtained from the VIN of the vehicle.",
+    "field": 229,
+    "field_type": "string",
+    "name": "MDI_OBD_SQUISH_VIN",
+    "size": 17
+  },{
+    "ack": 1,
+    "description": "List of pending DTCs.",
+    "field": 230,
+    "field_type": "string",
+    "name": "MDI_PENDING_DTC_LIST",
+    "size": 255
+  },{
+    "ack": 1,
+    "description": "Max RPM in last over-RPM session.",
+    "field": 231,
+    "field_type": "integer",
+    "name": "MDI_MAX_RPM_IN_LAST_OVER_RPM",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Mileage in meters obtained from the OBD stack.",
+    "field": 232,
+    "field_type": "integer",
+    "name": "MDI_OBD_MILEAGE_METERS",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "True if car is idling, false otherwise.",
+    "field": 233,
+    "field_type": "boolean",
+    "name": "MDI_IDLE_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 234,
+    "field_type": "string",
+    "name": "MDI_VEHICLE_STATE",
+    "size": 3
+  },{
+    "ack": 1,
+    "description": "Speed value obtained from the OBD stack.",
+    "field": 235,
+    "field_type": "integer",
+    "name": "MDI_OBD_SPEED",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Engine RPM obtained from the OBD stack.",
+    "field": 236,
+    "field_type": "integer",
+    "name": "MDI_OBD_RPM",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Quantity of fuel used obtained from the OBD stack.",
+    "field": 237,
+    "field_type": "integer",
+    "name": "MDI_OBD_FUEL",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "VIN obtained from the OBD stack.",
+    "field": 238,
+    "field_type": "string",
+    "name": "MDI_OBD_VIN",
+    "size": 17
+  },{
+    "ack": 1,
+    "description": "Mileage obtained from the OBD stack.",
+    "field": 239,
+    "field_type": "integer",
+    "name": "MDI_OBD_MILEAGE",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 240,
+    "field_type": "integer",
+    "name": "MDI_JOURNEY_TIME",
+    "size": 4
+
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 241,
+    "field_type": "integer",
+    "name": "MDI_IDLE_JOURNEY",
+    "size": 4
+
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 242,
+    "field_type": "integer",
+    "name": "MDI_DRIVING_JOURNEY",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "Max speed measured during last overspeed session (km/h).",
+    "field": 243,
+    "field_type": "integer",
+    "name": "MDI_MAX_SPEED_IN_LAST_OVERSPEED",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 244,
+    "field_type": "integer",
+    "name": "MDI_OVERSPEED_COUNTER",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 245,
+    "field_type": "boolean",
+    "name": "MDI_TOW_AWAY",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "km",
+    "field": 246,
+    "field_type": "integer",
+    "name": "MDI_ODO_JOURNEY",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 247,
+    "field_type": "boolean",
+    "name": "MDI_OVERSPEED",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "km/h",
+    "field": 248,
+    "field_type": "integer",
+    "name": "MDI_MAX_SPEED_JOURNEY",
+    "size": 4
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 249,
+    "field_type": "boolean",
+    "name": "MDI_JOURNEY_STATE",
+    "size": 1
+  },{
+    "ack": 1,
+    "description": "",
+    "field": 250,
+    "field_type": "string",
+    "name": "MDI_RECORD_REASON",
+    "size": 50
+  },{
+    "name": "MDI_CC_LEGAL_SPEED",
+    "field": 5000,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The legal speed of the road matched"
+  },{
+    "name": "MDI_CC_ROADTYPE",
+    "field": 5001,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The type of the road matched"
+  },{
+    "name": "MDI_CC_URBAN",
+    "field": 5002,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "True if matched in urban zone, false otherwise"
+  },{
+    "name": "MDI_CC_COUNTRY",
+    "field": 5003,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The matched country name"
+  },{
+    "name": "MDI_CC_CITY",
+    "field": 5004,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The city matched name"
+  },{
+    "name": "MDI_CC_SUB_CITY",
+    "field": 5005,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The sub-city matched name"
+  },{
+    "name": "MDI_CC_STREET_NUMBER",
+    "field": 5006,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The street matched number"
+  },{
+    "name": "MDI_CC_ROUTE_NUMBER",
+    "field": 5007,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The route matched number"
+  },{
+    "name": "MDI_CC_ROUTE_NAME",
+    "field": 5008,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The matched route name"
+  },{
+    "name": "MDI_CC_POSTAL_CODE",
+    "field": 5009,
+    "field_type": "string",
+    "size": 64,
+    "ack": 1,
+    "description": "The matched postal code"
+  },{
+    "name": "MDI_CC_MATCHED_LATITUDE",
+    "field": 5010,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The matched latitude in hundreath of thousands of degrees"
+  },{
+    "name": "MDI_CC_MATCHED_LONGITUDE",
+    "field": 5011,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The matched longitude in hundreath of thousands of degrees"
+  },{
+    "name": "MDI_CC_TRIP_DISTANCE",
+    "field": 5012,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip distance in meters"
+  },{
+    "name": "MDI_CC_TRIP_DURATION",
+    "field": 5013,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip duration in seconds"
+  },{
+    "name": "MDI_CC_TRIP_AVERAGE_SPEED",
+    "field": 5014,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip average speed in km/h"
+  },{
+    "name": "MDI_CC_TRIP_FUEL_ECONOMY",
+    "field": 5015,
+    "field_type": "string",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip fuel economy in mile per galon"
+  },{
+    "name": "MDI_CC_TRIP_FUEL_CONSUMED",
+    "field": 5016,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip fuel consumed in milli liters"
+  },{
+    "name": "MDI_CC_TRIP_IDLING_DURATION",
+    "field": 5017,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip idling duration in seconds"
+  },{
+    "name": "MDI_CC_TRIP_IDLING_FUEL_CONSUMED",
+    "field": 5018,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip idling fuel consumed in milli liters"
+  },{
+    "name": "MDI_CC_TRIP_CRUISE_CONTROL_DISTANCE",
+    "field": 5019,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip distance done with cruise control ON in meters"
+  },{
+    "name": "MDI_STAT_GLOBAL_TRIP_DISTANCE",
+    "field": 5020,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The global trip distance in meters"
+  },{
+    "name": "MDI_STAT_GLOBAL_TRIP_FUEL_CONSUMED",
+    "field": 5021,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The global trip fuel consumed in milli liters"
+  },{
+    "name": "MDI_CC_GLOBAL_FUEL_ECONOMY",
+    "field": 5022,
+    "field_type": "string",
+    "size": 4,
+    "ack": 1,
+    "description": "The global fuel economy in mile per gallon"
+  },{
+    "name": "MDI_CC_DTC_LIST",
+    "field": 5023,
+    "field_type": "string",
+    "size": 65536,
+    "ack": 1,
+    "description": "DTC list sent by the DTC Transcoder agent."
+  },{
+    "name": "MDI_CC_TANK_REMAINING_FUEL",
+    "field": 5024,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The remaining volume of gas in milliliters."
+  },{
+    "name": "MDI_CC_TRIP_DRIVING_DURATION",
+    "field": 5025,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The moving time in seconds."
+  },{
+    "name": "MDI_CC_GLOBAL_TRIP_CRUISE_CONTROL_ENGAGED",
+    "field": 5026,
+    "field_type": "string",
+    "size": 10,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_GLOBAL_TRIP_IDLING_FUEL_CONSUMED",
+    "field": 5027,
+    "field_type": "string",
+    "size": 10,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_GLOBAL_TRIP_FUEL_CONSUMED",
+    "field": 5028,
+    "field_type": "string",
+    "size": 10,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_GLOBAL_TRIP_ENGINE_HOURS",
+    "field": 5029,
+    "field_type": "string",
+    "size": 10,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_TRIP_NON_IDLING_AVERAGE_SPEED",
+    "field": 5030,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "The trip average speed in km/h not counting idling"
+  },{
+    "name": "MDI_CC_TRIP_LAST_TRACK_ID",
+    "field": 5031,
+    "field_type": "string",
+    "size": 4,
+    "ack": 1,
+    "description": "The id of the last track of the trip"
+  },{
+    "name": "MDI_CC_TRIP_LAST_ECM_ENGINE_HOURS",
+    "field": 5032,
+    "field_type": "integer",
+    "size": 5,
+    "ack": 1,
+    "description": "Last known ECM total engine hours value in hours."
+  },{
+    "name": "MDI_CC_TRACK_OVERSPEED",
+    "field": 5033,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "0 if the vehicle is not speeding. (speed - legalspeed)/legalspeed in percentage if the vehicle is speeding. This applies only to this specific track."
+  },{
+    "name": "MDI_CC_CORRIDOR_OVERSPEED",
+    "field": 5034,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "0 if the vehicle is not speeding. (speed - legalspeed)/legalspeed in percentage if the vehicle is speeding."
+  },{
+    "name": "MDI_CC_TRIP_OVERSPEED_DISTANCE_PERCENTAGE",
+    "field": 5035,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "Percentage of the trip distance that the vehicle spent speeding."
+  },{
+    "name": "MDI_CC_TRIP_OVERSPEED_TIME_PERCENTAGE",
+    "field": 5036,
+    "field_type": "integer",
+    "size": 4,
+    "ack": 1,
+    "description": "Percentage of the trip time that the vehicle spent speeding."
+  },{
+    "name": "MDI_CC_ENGINE_CODE",
+    "field": 10233,
+    "field_type": "string",
+    "size": 32,
+    "ack": 1,
+    "description": "Code of the engine."
+  },{
+    "name": "MDI_CC_INSPECTION_INDICATOR_WARNING",
+    "field": 10234,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Indicator warning for inspection."
+  },{
+    "name": "MDI_CC_DIAG_DTC_LIST",
+    "field": 10235,
+    "field_type": "string",
+    "size": 65536,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_DTC_CLEARED",
+    "field": 10236,
+    "field_type": "string",
+    "size": 65536,
+    "ack": 1,
+    "description": ""
+  },{
+    "name": "MDI_CC_TIME_BETWEEN_INSPECTIONS",
+    "field": 10237,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Time between two inspections, in days."
+  },{
+    "name": "MDI_CC_TIME_SINCE_LAST_INSPECTION",
+    "field": 10238,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Time since last inspection retrieve from the diagnostic data, in days."
+  },{
+    "name": "MDI_CC_MILEAGE_AT_LAST_INSPECTION",
+    "field": 10239,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Distance at last inspection retrieve from the diagnostic data, in kilometers."
+  },{
+    "name": "MDI_CC_MILEAGE_BETWEEN_INSPECTIONS",
+    "field": 10240,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Distance between two inspections, in kilometers."
+  },{
+    "name": "MDI_CC_MILEAGE_SINCE_LAST_INSPECTION",
+    "field": 10241,
+    "field_type": "integer",
+    "size": 8,
+    "ack": 1,
+    "description": "Distance since last inspection retrieve from the diagnostic data, in kilometers."
+  },{
+    "name": "MDI_CC_INSPECTION_LAST_DATE",
+    "field": 10242,
+    "field_type": "string",
+    "size": 32,
+    "ack": 1,
+    "description": "Date of the last inspection retrieve from the diagnostic data, format yyyy-mm-dd."
+  },{
+    "name": "MDI_CC_VEHICLE_ACCELERATOR_PEDAL",
+    "field": 10243,
+    "field_type": "integer",
+    "size": 32,
+    "ack": 1,
+    "description": "Status of the accelerator pedal (0 not pressed, 1 pressed, -1 faulty)."
+  },{
+    "name": "MDI_CC_ENGINE_INJECTED_AIR_FLOW_BY_MASS",
+    "field": 10244,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Mass flow-air injected in engine (in g/s)."
+  },{
+    "name": "MDI_CC_ENGINE_INJECTED_AIR_FLOW_BY_VOL",
+    "field": 10245,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Volum flow-air injected in engine (in l/h)."
+  },{
+    "name": "MDI_CC_ENVIRONMENT_ATMOSPHERIC_PRESSURE",
+    "field": 10246,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Value of the atmospheric pressure (in hPa)."
+  },{
+    "name": "MDI_CC_VEHICLE_BATTERY_VOLTAGE",
+    "field": 10247,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Voltage of the battery (in Volt)."
+  },{
+    "name": "MDI_CC_VEHICLE_BOOST_PRESSURE",
+    "field": 10248,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Air pressure in engine (in kPa)."
+  },{
+    "name": "MDI_CC_VEHICLE_BREAK_PEDAL",
+    "field": 10249,
+    "field_type": "integer",
+    "size": 32,
+    "ack": 1,
+    "description": "Status of the break pedal (0 not pressed, 1 pressed, -1 faulty)."
+  },{
+    "name": "MDI_CC_VEHICLE_CLUTCH_PEDAL",
+    "field": 10250,
+    "field_type": "integer",
+    "size": 32,
+    "ack": 1,
+    "description": "Status of the clutch pedal (0 not pressed, 1 pressed, -1 faulty)."
+  },{
+    "name": "MDI_CC_VEHICLE_DPF_DIFFERENTIAL_PRESSURE",
+    "field": 10251,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Differential pressure of the diesel particle filter (in hPa)."
+  },{
+    "name": "MDI_CC_VEHICLE_ECU_SERIAL",
+    "field": 10252,
+    "field_type": "string",
+    "size": 32,
+    "ack": 1,
+    "description": "Serial number of the engine ECU."
+  },{
+    "name": "MDI_CC_VEHICLE_FUEL_PRESSURE",
+    "field": 10253,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Pressure of the fuel (in kPa)."
+  },{
+    "name": "MDI_CC_VEHICLE_STEERINGWHEEL_ANGLE",
+    "field": 10254,
+    "field_type": "integer",
+    "size": 32,
+    "ack": 1,
+    "description": "Orientation of the steering wheel (in degree)."
+  },{
+    "name": "MDI_CC_WHEEL_FRONT_LEFT_SPEED",
+    "field": 10255,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Speed of the front left wheel (in km/h)."
+  },{
+    "name": "MDI_CC_WHEEL_FRONT_RIGHT_SPEED",
+    "field": 10256,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Speed of the front right wheel (in km/h)."
+  },{
+    "name": "MDI_CC_WHEEL_REAR_LEFT_SPEED",
+    "field": 10257,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Speed of the rear left wheel (in km/h)."
+  },{
+    "name": "MDI_CC_WHEEL_REAR_RIGHT_SPEED",
+    "field": 10258,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Speed of the rear right wheel (in km/h)."
+  },{
+    "name": "MDI_CC_WHEEL_FRONT_LEFT_TIRE_PRESSURE",
+    "field": 10259,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Pressure of the front left wheel's tire (in kPa)."
+  },{
+    "name": "MDI_CC_WHEEL_FRONT_RIGHT_TIRE_PRESSURE",
+    "field": 10260,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Pressure of the front right wheel's tire (in kPa)."
+  },{
+    "name": "MDI_CC_WHEEL_REAR_LEFT_TIRE_PRESSURE",
+    "field": 10261,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Pressure of the rear left wheel's tire (in kPa)."
+  },{
+    "name": "MDI_CC_WHEEL_REAR_RIGHT_TIRE_PRESSURE",
+    "field": 10262,
+    "field_type": "double",
+    "size": 32,
+    "ack": 1,
+    "description": "Pressure of the rear right wheel's tire (in kPa)."
+  },{
+    "name": "MDI_CC_VEHICLE_VIN",
+    "field": 10263,
+    "field_type": "string",
+    "size": 32,
+    "ack": 1,
+    "description": "Vehicle VIN returned by not OBD Command."
+  },{
+    "name": "MDI_CC_OIL_PRESSURE_WARNING",
+    "field": 10264,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "Indicator warning for oil pressure."
+  },{
+    "name": "MDI_CC_OIL_LEVEL_WARNING",
+    "field": 10265,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "Indicator warning for oil level."
+  },{
+    "name": "MDI_CC_COOLER_LEVEL_WARNING",
+    "field": 10266,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "Indicator warning for cooler level."
+  },{
+    "name": "MDI_CC_WASHER_LEVEL_WARNING",
+    "field": 10267,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "Indicator warning for washer level."
+  },{
+    "name": "MDI_CC_BRAKE_LEVEL_WARNING",
+    "field": 10268,
+    "field_type": "boolean",
+    "size": 1,
+    "ack": 1,
+    "description": "Indicator warning for brake liquid level."
+  },{
+    "name": "MDI_CC_OIL_PRESSURE",
+    "field": 10269,
+    "field_type": "double",
+    "size": 64,
+    "ack": 1,
+    "description": "Pressure measured for oil pressure (in kPa)."
+  }
+]

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "munic/type/utils/struct.proto";
+import "munic/type/knownFields/municFields.proto";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "TrackProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+// Track data sent by a device or injected by cloud (enrichement)
+message Track {
+	// The namespaced track fields
+	map<string,Namespace> namespaces = 1;
+
+	// The number of the recived field of the concerned asset starting
+	// from the last connection.
+	uint64 index = 2;
+}
+
+// Track.namespaces["MUNIC"].base.POSITION
+// Track.namespaces["UNTYPED_<PREFIX>"].struct["POSITION"].integer_value
+// Track.namespaces["AGENT_<AGENTNAME>"].struct["POSITION"].integer_value
+message Namespace {
+	oneof kind {
+		munic.type.knownFields.MunicFields base = 1;
+		munic.type.utils.Struct struct = 2;
+		//Any schema = 3;
+	}
+}

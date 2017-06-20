@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "ConnStateChangeProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+// ConnStateChange is received when a device's connection state change.
+// This type replace the "Presence" object
+message ConnStateChange {
+	enum Type {
+		UNKNOWN_TYPE = 0;
+		CONNECT = 1;
+		DISCONNECT = 2;
+		CONNECT_TRY_FAIL = 3; // This is FAILED_CONNECT in the msgpack object.
+	}
+
+	Type type = 1;
+
+	// AssetReason is the list of reasons for an asset disconnection as seen by the asset itself.
+	enum AssetReason {
+		UNKNOWN_ASSET_REASON = 0; 	// unknown asset reason
+		COLD_BOOT = 1;        		// the device was turned off, which closed the connection on the device's side
+		SUSPEND_BOOT = 2;     		// the device was turned off, which closed the connection on the device's side (for device's with a screen)
+		IDLE_OUT = 3;         		// the device went into idle, which closed the connection on the device's side
+		PPP_LOST = 4;         		// device lost the ppp, which closed the connection on the device's side
+		MODEM_RESET = 5;      		// the device's modem was reset, which closed the connection on the device's side
+		SIM_ERROR = 6;        		// the device's sim card was removed, which closed the connection on the device's side
+		ROAMING = 7;        		//
+		CONNECTION_LOST = 8; 		//
+		NEW_CONFIG = 9; 		//
+		WRITE_ERROR = 10;      		// the device was unable to write to the socket, and closed the connection on the device's side
+		READ_ERROR = 11;       		// the device was unable to read from the socket, and closed the connection on the device's side
+		CLOSED_BY_SERVER = 12; 		// the device tried to write to the socket, but the socket had been closed (by the server, the ISP...)
+	}
+
+	// AssetReason is the reason of the _last_ disconnection. It is returned
+	// by the asset and may not be present in disconnect & conntect_try_fail events.
+	AssetReason asset_reason = 2;
+
+	// BSReason is the list of reasons for an asset disconnection/connection failure as seen by the Binary Server.
+	enum BSReason {
+		UNKNOWN_BS_REASON = 0;		// unknown bs reason
+		SOCKET_CLOSED = 1;		// the server tried to write to the socket, but the socket had been closed (by the device, the ISP...)
+		NETWORK_ERROR = 2;		// the server received a tcp error when communicating on the socket, and closed the connection
+		CLIENT_DISCONNECT = 3;		// the device sent a disconnect symbol
+		NETWORK_ACTIVITY_TIMEOUT = 4;	// we exceeded the network_activity_timeout with no activity on the socket
+		MESSAGE_ACK_TIMEOUT = 5;	// the server timeouted while waiting for the device to acknowledge a message
+		BASEVALUE_ACK_TIMEOUT = 6;	// the server timeouted while waiting for the device to acknowledge a basevalue (used to send relative timestamps and message ids)
+		UNKNOWN_CHANNEL = 7;		// a message was sent on a channel that was not set in the cloud
+		UNKNOWN_DYNAMIC_CHANNEL = 8;	// the device tried to communicate on a channel using a stale id, so the server closed the connection
+		SERVER_SHUTDOWN = 9;		// the server was restarted, closing all active connections with the devices
+		AUTH_FAILED_ASSET = 10;		// auth error of asset
+		AUTH_FAILED_ACCOUNT = 11;	// auth error of account
+		AUTH_FAILED_IP = 12;		// auth error of ip
+		AUTH_FAILED_TRANSPORT = 13;	// auth error of transport
+	}
+
+	// BSReason is the reason of the loss-of-connection/failure-to-connect event.
+	// It is returned by the Binary Server and will not be present for CONNECT Changes.
+	BSReason bs_reason = 3;
+
+	// The ip address of the asset concerned by this presence.
+	string ip = 4;
+
+	// The protocol used in the connection.
+	string protocol = 5;
+
+	// The textual description of the presence event occurence.
+	string fullreason = 6;
+
+	// We removed `who` and `confhash` field. It is depercated
+}

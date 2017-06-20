@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "EntityProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+
+// Entity represents a defined object which deals with events (processor, producer or consumer).
+message Entity {
+	// Represent the entity type.
+	// If no one is set, the entity is considered as unknown
+	// which can be useful for test while debugging.
+	oneof entityType {
+		Asset asset = 1;
+		AgentVersion agentVersion = 2;
+		BSEntrypoint bsEntrypoint = 3;
+	}
+}
+
+// Asset Entity type. The Event is produced by an external device.
+// We can use Asset independently from the entity object. This is the case
+// of the event object which use Asset object to precise the related asset
+// (and its account).
+message Asset {
+	// id is the IMEI of the device.
+	string id = 1;
+	// account the device belongs to.
+	string account = 2;
+}
+
+// AgentVersion Entity type. The Event is normally produced by the API.
+// We can use AgentVersion independently from the entity object.
+message AgentVersion {
+	// id is the unique identifier in the db 
+	// of the agent version
+	string id = 1;
+	
+	// version if the version of the agent version
+	// ex: 1.0.1-rc
+	string version = 2;
+	
+	// agent is the parent agent of the version
+	// ex: maps, obdstack
+	Agent agent = 3;
+	
+	// Agent message definition
+	message Agent {
+		string id = 1;
+  		string name = 2;
+	}
+}
+
+// Binary Server entity.
+// We can use BSEntrypoint independently from the entity object.
+message BSEntrypoint {
+	// id is the id of the Binary Server (ex: b12_1234)
+	string id = 1;
+}

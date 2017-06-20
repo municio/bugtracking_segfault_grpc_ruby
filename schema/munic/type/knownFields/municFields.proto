@@ -1,0 +1,709 @@
+syntax = "proto3";
+
+import "munic/type/utils/boxed.proto";
+import "google/type/latlng.proto";
+
+package munic.type.knownFields;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types/knownFields";
+option java_package = "com.munic.model.type.knownFields";
+option java_outer_classname = "MunicFieldsProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+message MunicFields {
+	// Stores the position of the asset.
+	google.type.LatLng POSITION = 1;
+
+	// Stores the last validity state of the latest GPS GPRMC frame. 'A' is valid and
+	// 'V' is invalid.
+	munic.type.utils.String GPRMC_VALID = 3;
+
+	// Stores the last valid speed of the GPS in 1/1000th knots.
+	munic.type.utils.Integer GPS_SPEED = 8;
+
+	// Stores the last valid course of the GPS in 1/100th degrees.
+	munic.type.utils.Integer GPS_DIR = 9;
+
+	// Stores the current altitude, in meters. Is set to -999 when GPS is not fixed.
+	munic.type.utils.Integer GPS_ALTITUDE = 10;
+
+	// Stores the state of the ignition input.
+	munic.type.utils.Boolean DIO_IGNITION = 14;
+
+	// Stores 0 if the internal battery is in use or 1 if not.
+	munic.type.utils.Integer BATT = 15;
+
+	// Stores 0 (2 with roaming) if GPRS is not registered or 1 (3 with roaming) if
+	// registered. This value is used in the GPRS state tracking field.
+	munic.type.utils.Integer GPRS_HEADER = 16;
+
+	// Stores the modem RSSI.
+	munic.type.utils.Integer RSSI = 17;
+
+	// Set to 0 if the device is 'really' unplugged from the car. Set to 1 if the
+	// external voltage is present. This may differ under some circumstances from
+	// MDI_BATT (the device may be connected AND the battery used).
+	munic.type.utils.Integer MDI_EXT_BATT_PRESENT = 18;
+
+	// Standard tachometer return value. The first driver's selector state from the
+	// tachograph device (driving, rest, availability, work).
+	munic.type.utils.String TACHOGRAPH_FIRST_DRIVER_STATE = 19;
+
+	// Standard tachometer return value.
+	munic.type.utils.String TACHOGRAPH_FIRST_DRIVER_DRIVING_STATE = 20;
+
+	// Standard tachometer return value. The dailymeter value from the tachograph
+	// device.
+	munic.type.utils.Integer TACHOGRAPH_DAILYMETER = 21;
+
+	// Standard tachometer return value. The odometer value from the tachograph device.
+	munic.type.utils.Integer TACHOGRAPH_ODOMETER = 22;
+
+	// Stores value in kilometers of the GPS's partial odometer.
+	munic.type.utils.String ODO_PARTIAL_KM = 23;
+
+	// Stores value in meters of the GPS's full odometer.
+	munic.type.utils.Integer ODO_FULL = 24;
+
+	// Standard tachometer return value. The time spent driving value from the
+	// tachograph device.
+	munic.type.utils.Integer TACHOGRAPH_DRIVING_TIME = 25;
+
+	// Stores the state of the alarm input.
+	munic.type.utils.Boolean DIO_ALARM = 26;
+
+	// Stores the first IButton ID.
+	munic.type.utils.String DRIVER_ID = 27;
+
+	// 1-wire temperature sensor #1.
+	munic.type.utils.Integer TEMP_1 = 28;
+
+	// 1-wire temperature sensor #2.
+	munic.type.utils.Integer TEMP_2 = 29;
+
+	// 1-wire temperature sensor #3.
+	munic.type.utils.Integer TEMP_3 = 30;
+
+	// 1-wire temperature sensor #4.
+	munic.type.utils.Integer TEMP_4 = 31;
+
+	// 1-wire temperature sensor #5.
+	munic.type.utils.Integer TEMP_5 = 32;
+
+	// 1-wire temperature sensor #6.
+	munic.type.utils.Integer TEMP_6 = 33;
+
+	// 1-wire temperature sensor #7.
+	munic.type.utils.Integer TEMP_7 = 34;
+
+	// 1-wire temperature sensor #8.
+	munic.type.utils.Integer TEMP_8 = 35;
+
+	// 1-wire temperature sensor #9.
+	munic.type.utils.Integer TEMP_9 = 36;
+
+	// 1-wire temperature sensor #10.
+	munic.type.utils.Integer TEMP_10 = 37;
+
+	// Stores the state of all inputs in a hexstring, each bit represents one input.
+	munic.type.utils.Bytes DIO_IN_TOR = 38;
+
+	// Horizontal dilution of the precision of the GPS.
+	munic.type.utils.Integer GPS_HDOP = 39;
+
+	// Vertical dilution of the precision of the GPS.
+	munic.type.utils.Integer GPS_VDOP = 40;
+
+	// Positional dilution of the precision of the GPS.
+	munic.type.utils.Integer GPS_PDOP = 41;
+
+	// Battery temperature (milli °C).
+	munic.type.utils.Integer BATT_TEMP = 42;
+
+	// Case temperature (milli °C).
+	munic.type.utils.Integer CASE_TEMP = 43;
+
+	// Name of the current network operator.
+	munic.type.utils.String MODEM_NETWORK_OPERATOR = 44;
+
+	// Contains the unique identifier for the first OBD protocol the device used to
+	// connect itself with.
+	munic.type.utils.Integer OBD_CONNECTED_PROTOCOL = 45;
+
+	// Contains the current PDOP status: 0 if instable, 1 if the pdop is less than the
+	// configured value for the configured number of seconds, 2 if the pdop is more
+	// than the configured value for the configured number of seconds.
+	munic.type.utils.Integer GPS_AVERAGE_PDOP_STATUS = 46;
+
+	// The last valid gps latitude known. Needs to be divided by 10^6 to be in decimal
+	// degree format.
+	munic.type.utils.Integer MDI_LAST_VALID_GPS_LATITUDE = 47;
+
+	// The last valid gps longitude known. Needs to be divided by 10^6 to be in decimal
+	// degree format.
+	munic.type.utils.Integer MDI_LAST_VALID_GPS_LONGITUDE = 48;
+
+	// Fuel level of the second tank.
+	munic.type.utils.Integer FMS_FUEL_LEVEL_2 = 50;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_OBD_FUEL_LEVEL_RATIO = 51;
+
+	// Standard tachometer return value. The first driver's id from the tachograph
+	// device.
+	munic.type.utils.String TACHOGRAPH_FIRST_DRIVER_ID = 52;
+
+	// Stores the list of crossed areas. Format is (FileId:AreaId;)*.
+	munic.type.utils.String AREA_LIST = 53;
+
+	// Standard tachometer return value. Update timestamp every time another value is
+	// updated in number of seconds since Jan 1st 1970 (EPOCH for UNIX).
+	munic.type.utils.Integer TACHOGRAPH_TIMESTAMP = 54;
+
+	// Number of satellites used for the GPS fix.
+	munic.type.utils.Integer GPS_FIXED_SAT_NUM = 55;
+
+	// Filled by the gpsMvtDetector component. Retrurns true when the device is moving
+	// according to the GPS or the accelerometer.
+	munic.type.utils.Boolean MVT_STATE = 56;
+
+	// Stores the last boot reason.
+	munic.type.utils.String BOOT_REASON = 57;
+
+	// Stores both the value of the shutdown field_type and the value of the shutdown
+	// reason when the function shutdownRequest is called. Values are separated by a
+	// '-'.
+	munic.type.utils.String SHUTDOWN_TYPE_AND_REASON = 58;
+
+	// Internal battery voltage (mV).
+	munic.type.utils.Integer BATT_VOLT = 59;
+
+	// Stores the total current number of kilobytes of data transmitted.
+	munic.type.utils.Integer TX_KBYTES = 60;
+
+	// Stores the total current number of kilobytes of data received.
+	munic.type.utils.Integer RX_KBYTES = 61;
+
+	// Used when a resistor is wired to an output in order to keep the battery
+	// temperature above 0°C while it is charging.
+	munic.type.utils.Integer BATT_WARMUP = 62;
+
+	// Stores 1 if the internal battery is charging or 0 if not.
+	munic.type.utils.Boolean BATT_CHARGING = 63;
+
+	// Standard 2 card slot tachometer return value (some trucks have tachometers that
+	// allow you to insert two cards; both drivers have their own state). The second
+	// driver's selector state from the tachograph device.
+	munic.type.utils.String TACHOGRAPH_SECOND_DRIVER_STATE = 64;
+
+	// Standard 2 card slot tachometer return value. The second driver's id from the
+	// tachograph device.
+	munic.type.utils.String TACHOGRAPH_SECOND_DRIVER_ID = 65;
+
+	// Standard tachometer return value. The vehicle registration number (VRN) from the
+	// tachograph device.
+	munic.type.utils.String TACHOGRAPH_VRN = 66;
+
+	// Standard tachometer return value. The vehicle identification number (VIN) from
+	// the tachograph device.
+	munic.type.utils.Bytes TACHOGRAPH_VIN = 67;
+
+	// Stores the state of all outputs in a hexstring, each bit represents one output.
+	munic.type.utils.Bytes DIO_OUT_TOR = 68;
+
+	// Old framework component that manages IO for relays with IButton keys.
+	// Error-prone, so it is recommended not to use it.
+	munic.type.utils.Boolean RELAYCONTROL_STATE = 69;
+
+	// ICCID number of the SIM card (if present).
+	munic.type.utils.String MODEM_SIM_ICCID = 70;
+
+	// IMSI number of the SIM card (if present).
+	munic.type.utils.String MODEM_SIM_IMSI = 71;
+
+	// State of the serial PPP instances (0=not connected, 1=waiting for connection,
+	// 2=connected).
+	munic.type.utils.Integer SERIAL_PPP_STATE = 72;
+
+	// Fuel level in 1/10th of Liters.
+	munic.type.utils.Integer MDI_OBD_FUEL_LEVEL = 73;
+
+	// Engine Percent Load At Current Speed.
+	munic.type.utils.Integer MDI_OBD_ENGINE_LOAD = 74;
+
+	// Engine Fuel Delivery Pressure in psi.
+	munic.type.utils.Integer MDI_OBD_FUEL_PRESSURE = 75;
+
+	// Engine Throttle Position percentage.
+	munic.type.utils.Integer MDI_OBD_THROTTLE_POSITION = 76;
+
+	// Engine oil temperature in Fahrenheit.
+	munic.type.utils.Integer MDI_OBD_ENGINE_OIL_TEMP = 77;
+
+	// Transmission Oil Temperature in Fahrenheit.
+	munic.type.utils.Integer MDI_OBD_TRANSMISSION_OIL_TEMP = 78;
+
+	// Engine Oil Pressure in psi.
+	munic.type.utils.Integer MDI_OBD_ENGINE_OIL_PRESSURE = 79;
+
+	// Cruise control state.
+	munic.type.utils.Boolean MDI_OBD_CRUISE_CONTROL = 80;
+
+	// Water In Fuel Indicator.
+	munic.type.utils.Boolean MDI_OBD_STATE_WATER_IN_FUEL = 81;
+
+	// Engine Coolant Level percentage.
+	munic.type.utils.Integer MDI_OBD_ENGINE_COOLANT_LEVEL = 82;
+
+	// Engine Coolant Temperature in Fahrenheit.
+	munic.type.utils.Integer MDI_OBD_ENGINE_COOLANT_TEMP = 83;
+
+	// Engine coolant pressure in psi.
+	munic.type.utils.Integer MDI_OBD_ENGINE_COOLANT_PRESSURE = 84;
+
+	// Engine Fuel Delivery Pressure in psi.
+	munic.type.utils.Integer MDI_OBD_FUEL_DELIVERY_PRESSURE = 85;
+
+	// Parking Brake Switch.
+	munic.type.utils.Boolean MDI_OBD_PARKING_BRAKE_SWITCH = 86;
+
+	// Stores the serial number of the last connected board (used when 2 devices are
+	// connected and using inter board communication).
+	munic.type.utils.String CONNECTED_BOARD_ID = 87;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_TOTAL_USED_FUEL = 88;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_FUEL_LEVEL = 89;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_AXLE_LOCATION = 90;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_AXLE_WEIGHT = 91;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_ENGINE_HOURS = 92;
+
+	// TODO: comment this field
+	munic.type.utils.String FMS_VEHICLE_ID = 93;
+
+	// TODO: comment this field
+	munic.type.utils.String FMS_SOFTWARE_ID = 94;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_TOTAL_DISTANCE = 95;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_NEXT_SERVICE = 96;
+
+	// TODO: comment this field
+	munic.type.utils.Integer FMS_ENGINE_COOLANT_TEMP = 97;
+
+	// TODO: comment this field
+	munic.type.utils.String FMS_INFORMATION = 98;
+
+	// Stores the serial number of the board (device).
+	munic.type.utils.String BOARD_ID = 99;
+
+	// Id of the event.
+	munic.type.utils.Integer BEHAVE_ID = 100;
+
+	// Longitude in hundred thousandths of a degree. Positive means East.
+	munic.type.utils.Integer BEHAVE_LONG = 101;
+
+	// Latitude in hundred thousandths of a degree. Positive means North.
+	munic.type.utils.Integer BEHAVE_LAT = 102;
+
+	// Date when the event occured. For example 25/10/2012 is transcribed as 121025.
+	munic.type.utils.Integer BEHAVE_DAY_OF_YEAR = 103;
+
+	// Time when the event occured. For example 14h35 12s is transcribed as 143512.
+	munic.type.utils.Integer BEHAVE_TIME_OF_DAY = 104;
+
+	// Speed over ground in kilo Knots.
+	munic.type.utils.Integer BEHAVE_GPS_SPEED_BEGIN = 105;
+
+	// Speed over ground in kilo Knots.
+	munic.type.utils.Integer BEHAVE_GPS_SPEED_PEAK = 106;
+
+	// Speed over ground in kilo Knots.
+	munic.type.utils.Integer BEHAVE_GPS_SPEED_END = 107;
+
+	// Course in thousandths of a degree.
+	munic.type.utils.Integer BEHAVE_GPS_HEADING_BEGIN = 108;
+
+	// Course in thousandths of a degree.
+	munic.type.utils.Integer BEHAVE_GPS_HEADING_PEAK = 109;
+
+	// Course in thousandths of a degree.
+	munic.type.utils.Integer BEHAVE_GPS_HEADING_END = 110;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_X_BEGIN = 111;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_X_PEAK = 112;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_X_END = 113;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Y_BEGIN = 114;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Y_PEAK = 115;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Y_END = 116;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Z_BEGIN = 117;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Z_PEAK = 118;
+
+	// Acceleration in mG.
+	munic.type.utils.Integer BEHAVE_ACC_Z_END = 119;
+
+	// TODO: comment this field
+	munic.type.utils.Integer BEHAVE_ELAPSED = 120;
+
+	// Cyclic counter for easy debug of events.
+	munic.type.utils.Integer BEHAVE_UNIQUE_ID = 121;
+
+	// TODO: comment this field
+	munic.type.utils.String MDI_CRASH_DETECTED = 122;
+
+	// Brake Application Pressure in psi.
+	munic.type.utils.Integer MDI_OBD_BRAKE_APPLICATION_PRESSURE = 123;
+
+	// Pedal brake status.
+	munic.type.utils.Boolean MDI_OBD_BRAKE_PEDAL_STATUS = 124;
+
+	// Current stack name.
+	munic.type.utils.String MDI_OBD_STACK_NAME = 125;
+
+	// TODO: comment this field
+	munic.type.utils.Integer LAST_CALIB_ACCELERO_TIME = 126;
+
+	// Stores both the value of the shutdown field_type and the value of the shutdown
+	// reason when the function shutdownRequest is called. It starts with 'S:' and
+	// values are separated by a '-'.
+	munic.type.utils.String EVENT = 127;
+
+	// Brake pedal position in percentage (0 means no braking).
+	munic.type.utils.Integer MDI_OBD_BRAKE_PEDAL_POSITION = 128;
+
+	// Magnetization of axis X in milli gauss
+	munic.type.utils.Integer MAGNETO_X = 130;
+
+	// Magnetization of axis Y in milli gauss
+	munic.type.utils.Integer MAGNETO_Y = 131;
+
+	// Magnetization of axis Z in milli gauss
+	munic.type.utils.Integer MAGNETO_Z = 132;
+
+	// Heading of the vehicule based on magnetometer information. Measured clockwise
+	// from the North, either true or magnetic, in degrees between 0 and 359.
+	munic.type.utils.Integer MAGNETO_HEADING = 133;
+
+	// min internal battery voltage in mV.
+	munic.type.utils.Integer MDI_HEALTH_MIN_BATT_VOLT = 134;
+
+	// max internal battery voltage in mV.
+	munic.type.utils.Integer MDI_HEALTH_MAX_BATT_VOLT = 135;
+
+	// Bitmask of flags describing the internal battery status.
+	munic.type.utils.Integer MDI_BATT_STATUS = 136;
+
+	// Time in seconds spent with a speed in the band with id 1. The value of min and
+	// max speed of the band depends on the device configuration. Default configuration
+	// is minSpeed=0km/h, maxSpeed=49km/h.
+	munic.type.utils.Integer MDI_SPEED_BAND_1 = 138;
+
+	// Time in seconds spent with a speed in the band with id 2. The value of min and
+	// max speed of the band depends on the device configuration. Default configuration
+	// is minSpeed=50km/h.
+	munic.type.utils.Integer MDI_SPEED_BAND_2 = 139;
+
+	// Time in seconds spent with a speed in the band with id 3. The value of min and
+	// max speed of the band depends on the device configuration. Default configuration
+	// is minSpeed=90km/h.
+	munic.type.utils.Integer MDI_SPEED_BAND_3 = 140;
+
+	// Time in seconds spent with a speed in the band with id 4. The value of min and
+	// max speed of the band depends on the device configuration. Default configuration
+	// is minSpeed=140km/h.
+	munic.type.utils.Integer MDI_SPEED_BAND_4 = 141;
+
+	// Time in seconds spent with a speed in the band with id 5. The value of min and
+	// max speed of the band depends on the device configuration. Default configuration
+	// is to not use this field.
+	munic.type.utils.Integer MDI_SPEED_BAND_5 = 142;
+
+	// Time in seconds spent with a RPM in the band with id 1. The value of min and max
+	// RPM of the band depends on the device configuration. Default configuration is
+	// minRPM=0, maxRPM=999.
+	munic.type.utils.Integer MDI_RPM_BAND_1 = 143;
+
+	// Time in seconds spent with a RPM in the band with id 2. The value of min and max
+	// RPM of the band depends on the device configuration. Default configuration is
+	// minRPM=1000, maxRPM=1499.
+	munic.type.utils.Integer MDI_RPM_BAND_2 = 144;
+
+	// Time in seconds spent with a RPM in the band with id 3. The value of min and max
+	// RPM of the band depends on the device configuration. Default configuration is
+	// minRPM=1500, maxRPM=2499.
+	munic.type.utils.Integer MDI_RPM_BAND_3 = 145;
+
+	// Time in seconds spent with a RPM in the band with id 4. The value of min and max
+	// RPM of the band depends on the device configuration. Default configuration is
+	// minRPM=2500, maxRPM=9999.
+	munic.type.utils.Integer MDI_RPM_BAND_4 = 146;
+
+	// Time in seconds spent with a RPM in the band with id 5. The value of min and max
+	// RPM of the band depends on the device configuration. Default configuration is to
+	// not use this field.
+	munic.type.utils.Integer MDI_RPM_BAND_5 = 147;
+
+	// Alternative VIN when two or more valid VINs are sent by the device.
+	munic.type.utils.Bytes MDI_OBD_VIN_ALT = 148;
+
+	// Dashboard mileage in meters when available.
+	munic.type.utils.Integer MDI_DASHBOARD_MILEAGE_METERS = 149;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_EXT_BATT_LOW = 150;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_EXT_BATT_VOLTAGE = 151;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_PANIC_STATE = 152;
+
+	// TODO: comment this field
+	munic.type.utils.String MDI_PANIC_MESSAGE = 153;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_DTC_MIL = 154;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_DTC_NUMBER = 155;
+
+	// TODO: comment this field
+	munic.type.utils.String MDI_DTC_LIST = 156;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_MAX = 157;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_MIN = 158;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_AVERAGE = 159;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_RPM_OVER = 160;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_AVERAGE_RANGE_1 = 161;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_AVERAGE_RANGE_2 = 162;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_AVERAGE_RANGE_3 = 163;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_RPM_AVERAGE_RANGE_4 = 164;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_SENSORS_RECORDER_DATA = 165;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_SENSORS_RECORDER_CALIBRATION = 166;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_ODO_PARTIAL_METER = 167;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_ODO_FULL_METER = 168;
+
+	// Index that matches the BT device's MAC in the Array of MACs to record.
+	munic.type.utils.Integer MDI_BT_DEVICE_INDEX = 169;
+
+	// Temperature recorded by the BT device in degrees.
+	munic.type.utils.Integer MDI_BT_TEMPERATURE = 170;
+
+	// Light level recorded by the BT device in lux.
+	munic.type.utils.Integer MDI_BT_LIGHT_LEVEL = 171;
+
+	// Humidity recorded by the BT device in %.
+	munic.type.utils.Integer MDI_BT_HUMIDITY = 172;
+
+	// Last accelerometer data on X's device component, in mm.s-2. Be aware that the
+	// value is in mm.s-2 and not in m.s-2.
+	munic.type.utils.Integer MDI_BT_ACCELEROX = 173;
+
+	// Last accelerometer data on Y's device component, in mm.s-2. Be aware that the
+	// value is in mm.s-2 and not in m.s-2.
+	munic.type.utils.Integer MDI_BT_ACCELEROY = 174;
+
+	// Last accelerometer data on Z's device component, in mm.s-2. Be aware that the
+	// value is in mm.s-2 and not in m.s-2.
+	munic.type.utils.Integer MDI_BT_ACCELEROZ = 175;
+
+	// Passive InfraRed motion. 0 if the device is not in movement, 1 if the device is
+	// moving.
+	munic.type.utils.Integer MDI_BT_PIR = 176;
+
+	// Current country code as defined by ISO 3166-1.
+	munic.type.utils.String MDI_ZONE_COUNTRY = 177;
+
+	// Current state code as defined by ISO 3166-2.
+	munic.type.utils.String MDI_ZONE_STATE = 178;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_GPS_ANTENNA = 193;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_DIO_AIN1 = 194;
+
+	// Available space in bytes.
+	munic.type.utils.Integer MDI_HEALTH_WRITEDIR_FREE = 195;
+
+	// Number of open file descriptors.
+	munic.type.utils.Integer MDI_HEALTH_OPENED_FDS = 196;
+
+	// Number of threads on the device.
+	munic.type.utils.Integer MDI_HEALTH_THREADS = 197;
+
+	// Load average in percentile.
+	munic.type.utils.Integer MDI_HEALTH_LOADAVG15 = 198;
+
+	// Minimum temperature of the battery in milli celcius.
+	munic.type.utils.Integer MDI_HEALTH_MIN_BATT_TEMP = 199;
+
+	// Maximum temperature of the battery in milli celcius.
+	munic.type.utils.Integer MDI_HEALTH_MAX_BATT_TEMP = 200;
+
+	// Minimum temperature of the casing in milli celcius.
+	munic.type.utils.Integer MDI_HEALTH_MIN_CASE_TEMP = 201;
+
+	// Maximum temperature of the casing in milli celcius.
+	munic.type.utils.Integer MDI_HEALTH_MAX_CASE_TEMP = 202;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_CAN0_ERROR = 203;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_CAN1_ERROR = 204;
+
+	// Hash string that is unique per VIN.
+	munic.type.utils.Bytes MDI_OBD_VIN_HASH = 213;
+
+	// Number incremented every time a journey starts (MDI_JOURNEY_STATE is set to 1).
+	munic.type.utils.Integer MDI_JOURNEY_ID = 214;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_OBD_PID_1 = 215;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_OBD_PID_2 = 216;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_OBD_PID_3 = 217;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_OBD_PID_4 = 218;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_OBD_PID_5 = 219;
+
+	// Mileage obtained from the dashboard.
+	munic.type.utils.Integer MDI_DASHBOARD_MILEAGE = 223;
+
+	// Fuel percentage obtained from the dashboard.
+	munic.type.utils.Integer MDI_DASHBOARD_FUEL = 224;
+
+	// Fuel level obtained from the dashboard.
+	munic.type.utils.Integer MDI_DASHBOARD_FUEL_LEVEL = 225;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_DIAG_1 = 226;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_DIAG_2 = 227;
+
+	// TODO: comment this field
+	munic.type.utils.Bytes MDI_DIAG_3 = 228;
+
+	// Anonymized VIN obtained from the VIN of the vehicle.
+	munic.type.utils.Bytes MDI_OBD_SQUISH_VIN = 229;
+
+	// List of pending DTCs.
+	munic.type.utils.String MDI_PENDING_DTC_LIST = 230;
+
+	// Max RPM in last over-RPM session.
+	munic.type.utils.Integer MDI_MAX_RPM_IN_LAST_OVER_RPM = 231;
+
+	// Mileage in meters obtained from the OBD stack.
+	munic.type.utils.Integer MDI_OBD_MILEAGE_METERS = 232;
+
+	// True if car is idling, false otherwise.
+	munic.type.utils.Boolean MDI_IDLE_STATE = 233;
+
+	// TODO: comment this field
+	munic.type.utils.String MDI_VEHICLE_STATE = 234;
+
+	// Speed value obtained from the OBD stack.
+	munic.type.utils.Integer MDI_OBD_SPEED = 235;
+
+	// Engine RPM obtained from the OBD stack.
+	munic.type.utils.Integer MDI_OBD_RPM = 236;
+
+	// Quantity of fuel used obtained from the OBD stack.
+	munic.type.utils.Integer MDI_OBD_FUEL = 237;
+
+	// VIN obtained from the OBD stack.
+	munic.type.utils.Bytes MDI_OBD_VIN = 238;
+
+	// Mileage obtained from the OBD stack.
+	munic.type.utils.Integer MDI_OBD_MILEAGE = 239;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_JOURNEY_TIME = 240;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_IDLE_JOURNEY = 241;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_DRIVING_JOURNEY = 242;
+
+	// Max speed measured during last overspeed session (km/h).
+	munic.type.utils.Integer MDI_MAX_SPEED_IN_LAST_OVERSPEED = 243;
+
+	// TODO: comment this field
+	munic.type.utils.Integer MDI_OVERSPEED_COUNTER = 244;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_TOW_AWAY = 245;
+
+	// km
+	munic.type.utils.Integer MDI_ODO_JOURNEY = 246;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_OVERSPEED = 247;
+
+	// km/h
+	munic.type.utils.Integer MDI_MAX_SPEED_JOURNEY = 248;
+
+	// TODO: comment this field
+	munic.type.utils.Boolean MDI_JOURNEY_STATE = 249;
+
+	// TODO: comment this field
+	munic.type.utils.String MDI_RECORD_REASON = 250;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "AckProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+// Ack events are sent as a response to a parent message.
+message Ack {
+	// Channel is the name of the communication channel.
+	string channel = 1;
+
+	// TODO : comment each enum case
+	enum Code {
+		UNKNOWN = 0;
+		OK = 1;
+		NO_LISTENER = 2;
+		NOT_UNDERSTOOD = 3;
+	}
+
+	// Status code
+	Code status = 2;
+}

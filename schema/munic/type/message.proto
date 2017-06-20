@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/type/latlng.proto";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "MessageProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+message Message {
+	// Channel is the name of the communication channel.
+	string channel = 1;
+	
+	// The actual content of the message. 
+	bytes payload = 2;
+
+	// True if the message must be acknowledged by the recipient. 
+	// This field is set only when the recipient is an asset.
+	bool want_ack = 3;
+
+	// The interpretation of this field depends on wether the recipient of the message
+	// is an asset or an agent.
+	//
+	//  - recipient is an asset :	this field exists iff `want_ack` is true
+	//				and corresponds to the time when the message 
+	//				is destroyed by the Binary server if no ack
+	//				is recieved from the asset.
+	//  - recipient is the cloud :	TODO 	
+	// 
+	google.protobuf.Timestamp timeout_at = 4;
+
+	// Last known position of the `related_asset` when this message was recorded
+	// This field is set only when the sender is an asset.
+	google.type.LatLng position = 5;
+
+	// We removed `role` field.
+	// We removed `ttl` for now as timeout_at has the same usage.
+}

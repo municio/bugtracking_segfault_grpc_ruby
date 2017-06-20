@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "munic/type/entity.proto";
+import "munic/type/track.proto";
+import "munic/type/connStateChange.proto";
+import "munic/type/message.proto";
+import "munic/type/ack.proto";
+import "munic/internals/type/eventMetadata.proto";
+
+package munic.type;
+
+option go_package = "gitlab.mobile-intra.com/cloud-next/schema/compiled/go/munic/types";
+option java_package = "com.munic.model.type";
+option java_outer_classname = "EventProto";
+option java_multiple_files = true;
+option java_generate_equals_and_hash = true;
+
+// An Event is an immutable object in the cloud.
+// It represents the header (Metadata) of our events.
+message Event {
+	// Represents a unique event ID.
+	uint64 id = 1;
+
+	// A thread is a sequence of events,
+	// each event being a result of process of the previous one (request-response, enrichement).
+	// Such events in a sequence will have the same thread id.
+	uint64 thread_id = 2;
+
+	// Represents the entity that created and sent the first event of this thread of events
+	Entity thread_root = 3;
+
+	// This is the id of the parent events of this event.
+	// An event can be caused by other events (Causality).
+	// In this case, this attribute will be set to the parent events IDs.
+	// For the first event of the thread, parent_id isn't set.
+
+	// Generally, an event have only one parent event (for example when we produce with the API).
+	// An event can have more than one parent when we merge two events together after
+	// compositing two agents (not implemented for now)
+	repeated uint64 parent_ids = 4;
+
+	// Represents the entity that created and sent this event
+	Entity sender  = 5;
+
+	// Represents the entities that will receive the event.
+	// If the list is empty the recipients are not known.
+	repeated Entity recipients  = 6;
+
+	// GroupKey serves as the key when partitioning the event stream into substreams (such as kafka partitions)
+	// as well as for managing state. Indeed, two events having the same group_id have access
+	// to the same state. For now, the only group key is the related asset (which is a structure containing the 
+	// asset and the account). For now, The GroupKey will also be used to know to which account (or asset) this event
+	// is related. Thus, we only support asset in groupKey for instance.
+	GroupKey group_key = 7;
+
+	// connection_id of the related Asset. Mainly accessed by the Binary Server.
+	// This field is only set when the event comes from an asset from outside our cloud.
+	uint64 connection_id = 8;
+
+	// A timestamp indicating when the event's fields' information were recorded.
+	google.protobuf.Timestamp event_time = 9;
+
+	// A timestamp indicating when the event was ingested by our platform.
+	// This should only be set when the event comes from an entity from outside our
+	// platform.
+	// For now, it's only set if the event is received by the Binary Server,
+	// the entry point of Cloud Connect.
+	google.protobuf.Timestamp ingest_time = 10;
+
+	// content represent the body of the event.
+	// For instance, we distinguish three types of events (as specialisation)
+	oneof content {
+		// Track: Track data sent by a device or injected by cloud (enrichement)
+		Track track = 11;
+
+		// connStateChange: ConnStateChange event received when device's connection state changes
+		ConnStateChange connStateChange = 12;
+
+		// Message: Message data for two-way communication
+		Message message = 13;
+
+		// Ack: An acknowledge of a Message event
+		Ack ack = 14;
+	}
+	
+	// tags are used for specifying offers.
+	map<string,string> tags = 15;
+
+	// Private metadata of an event for internal use only.
+	// Change may happen at anytime without notice.
+	munic.internals.type.EventMetadata internal = 16; 
+}
+
+// GroupKey serves as the key when partitioning the event stream into substreams (such as kafka partitions)
+// as well as for managing state. Indeed, two events having the same group_id have access
+// to the same state. For now, the only group key is the related asset (which is a structure containing the 
+// asset and the account). For now, The GroupKey will also be used to know to which account (or asset) this event
+// is related. Thus, we only support asset in groupKey for instance.
+message GroupKey {
+	oneof key {
+		Asset asset = 1;
+	}
+}
