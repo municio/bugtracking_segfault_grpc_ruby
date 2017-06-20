@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package repro;
+
+message Outer {
+        map<int32,Inner> items = 1;
+}
+
+message Inner {}
