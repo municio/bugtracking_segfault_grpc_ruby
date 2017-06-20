@@ -3,21 +3,11 @@
 
 require 'google/protobuf'
 
-require 'munic/type/utils/struct_pb'
-require 'munic/type/knownFields/municFields_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "munic.type.Track" do
-    map :namespaces, :string, :message, 1, "munic.type.Namespace"
-    optional :index, :uint64, 2
+    map :namespaces, :int32, :message, 1, "munic.type.Namespace"
   end
   add_message "munic.type.Namespace" do
-    oneof :kind do
-      optional :base, :message, 1, "munic.type.knownFields.MunicFields"
-      optional :struct, :message, 2, "munic.type.utils.Struct"
-    end
-  end
-  add_message "munic.type.NameSpaceList" do
-    repeated :namespaces, :message, 1, "munic.type.Namespace"
   end
 end
 
@@ -25,6 +15,5 @@ module Munic
   module Type
     Track = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.Track").msgclass
     Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.Namespace").msgclass
-    NameSpaceList = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.NameSpaceList").msgclass
   end
 end

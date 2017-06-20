@@ -11,23 +11,15 @@ end
 
 thds = []
 
-10.times do
+2.times do
   thds << Thread.new do
     tr = Munic::Type::Track.new
-    fields = Munic::Type::KnownFields::MunicFields.new
-    tr.namespaces['MUNIC'] = Munic::Type::Namespace.new
-    tr.namespaces['MUNIC'].base = fields
+    tr.namespaces[0] = Munic::Type::Namespace.new
+    raw = Munic::Type::Track.encode(tr)
 
-    tracks = []
-    50000.times do
-      tracks << tr
+    1000000.times do
+      Munic::Type::Track.decode(raw)
     end
-
-    list = Munic::Type::TrackList.new(tracks: tracks)
-    raw = Munic::Type::TrackList.encode(list)
-    p "length of decoded protobuf is #{raw.size}"
-    Munic::Type::TrackList.decode(raw)
-    p "decode successful"
   end
 end
 
