@@ -31,3 +31,7 @@ message Namespace {
 		//Any schema = 3;
 	}
 }
+
+message NameSpaceList {
+  repeated Namespace namespaces = 1;
+}

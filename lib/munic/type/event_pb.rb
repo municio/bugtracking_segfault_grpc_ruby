@@ -36,11 +36,19 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :asset, :message, 1, "munic.type.Asset"
     end
   end
+  add_message "munic.type.EventList" do
+    repeated :events, :message, 1, "munic.type.Event"
+  end
+  add_message "munic.type.TrackList" do
+    repeated :tracks, :message, 1, "munic.type.Track"
+  end
 end
 
 module Munic
   module Type
     Event = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.Event").msgclass
     GroupKey = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.GroupKey").msgclass
+    EventList = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.EventList").msgclass
+    TrackList = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.TrackList").msgclass
   end
 end

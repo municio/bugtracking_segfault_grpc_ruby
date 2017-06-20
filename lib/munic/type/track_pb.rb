@@ -16,11 +16,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :struct, :message, 2, "munic.type.utils.Struct"
     end
   end
+  add_message "munic.type.NameSpaceList" do
+    repeated :namespaces, :message, 1, "munic.type.Namespace"
+  end
 end
 
 module Munic
   module Type
     Track = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.Track").msgclass
     Namespace = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.Namespace").msgclass
+    NameSpaceList = Google::Protobuf::DescriptorPool.generated_pool.lookup("munic.type.NameSpaceList").msgclass
   end
 end
