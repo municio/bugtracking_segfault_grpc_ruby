@@ -14,3 +14,4 @@ do
   protoc -I./schema -I"$PROTOBUF_SRC" --ruby_out=lib --grpc_out=lib --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` "$p"
 done
 
+protoc -I. --ruby_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_ruby_plugin` "track.proto"

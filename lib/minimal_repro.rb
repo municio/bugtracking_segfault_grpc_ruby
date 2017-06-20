@@ -13,12 +13,13 @@ thds = []
 
 2.times do
   thds << Thread.new do
-    tr = Munic::Type::Track.new
-    tr.namespaces[0] = Munic::Type::Namespace.new
-    raw = Munic::Type::Track.encode(tr)
+    #map[0] = Trac
+    #tr = Munic::Type::Track.new
+    #tr.namespaces[0] = Munic::Type::Namespace.new
+    raw = Google::Protobuf.encode(map)
 
     1000000.times do
-      Munic::Type::Track.decode(raw)
+      Google::Protobuf.decode(raw)
     end
   end
 end
