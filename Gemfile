@@ -1,8 +1,4 @@
-ruby '2.3.1'
+ruby '2.4.0'
 
 source 'https://rubygems.org'
-gem 'grpc'
-gem 'google-cloud'
-gem 'rack'
-
-gem 'protobuf', git: 'https://github.com/ruby-protobuf/protobuf'
+gem 'google-protobuf'
